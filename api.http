@@ -1,0 +1,7 @@
+###
+POST http://localhost:8000/api/kehadiran/sima@gmail.com
+Content-Type: application/x-www-form-urlencoded
+
+###
+GET http://localhost:8000/api/kehadiran
+Content-Type: application/x-www-form-urlencoded
