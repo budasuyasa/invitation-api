@@ -1,5 +1,5 @@
 ###
-POST http://localhost:8000/api/kehadiran/sima@gmail.com
+POST http://localhost:8000/api/kehadiran/budasuyasa@gmail.com
 Content-Type: application/x-www-form-urlencoded
 
 ###

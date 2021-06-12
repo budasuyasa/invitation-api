@@ -20,11 +20,11 @@ Route::get('/kehadiran', function(){
 });
 
 Route::post('/kehadiran/{email}', function(Request $request){
-    User::where('email', $request->email)->update([ 'attend' => '1' ]);
-    return response()->json(['status' => 'success'], 200);
+    $user = User::where('email', $request->email)->firstOrFail();
+    $user->update(['attend' => '1']);
+    return response()->json($user, 200);
 });
 
-// Route::get('/kehadiran/')
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

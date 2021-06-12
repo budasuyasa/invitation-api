@@ -12,7 +12,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table class="w-full border border-green-800">
                         <thead>
-                            <tr>
+                            <tr class="bg-green-300">
                                 <th class="border border-green-600">No</th>
                                 <th class="border border-green-600">Nama</th>
                                 <th class="border border-green-600">Email</th>
@@ -31,9 +31,9 @@
                                 <td class="border border-green-600 py-5 text-center">
                                     <img class="w-10 h-10 rounded-full m-auto" src="{{ $u->avatar }}" alt="">
                                 </td>
-                                <td class="border border-green-600 py-5">
+                                <td class="border border-green-600 py-5 text-center">
                                     @if ($u->attend == '0')
-                                    <span class="bg-info px-2 py-2 bg-yellow-600 rounded text-white text-center m-auto">
+                                    <span class="bg-info px-2 py-2 bg-gray-300 rounded text-white text-center m-auto">
                                         Belum Datang
                                     </span>
                                     @else
@@ -42,10 +42,10 @@
                                     </span>
                                     @endif
                                 </td>
-                                <td class="border border-green-600 py-5">
-                                    {!! QrCode::size(100)->generate($u->email); !!}
+                                <td class="border border-green-600 py-5 text-center">
+                                    <img class="m-auto" src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($u->email)) !!} ">
                                 </td>
-                                <td class="border border-green-600 py-5">
+                                <td class="border border-green-600 py-5 text-center">
                                     <form method="post" action="{{ route('undangan.destroy', ['undangan' => $u->id ]) }}">
                                         @csrf
                                         @method('delete')

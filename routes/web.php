@@ -14,15 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return redirect('undangan'); });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::resource('undangan', UndanganController::class);
-
-
-require __DIR__.'/auth.php';
+// Rute CRUD Untuk Admin
+Route::resource('/undangan', UndanganController::class);

@@ -16,7 +16,7 @@ class UndanganController extends Controller
      */
     public function index()
     {
-        $user  = User::where('id', '!=', Auth::user()->id)->paginate(10);
+        $user  = User::paginate(10);
         return view('undangan.index', compact('user'));
     }
 
